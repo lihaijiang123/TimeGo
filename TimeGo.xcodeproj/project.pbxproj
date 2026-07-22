@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DD639BC03AF46CB93352BCC /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB493CDA1114D52B9569871 /* Network.framework */; };
+		145874278D9B41FB9419EAAE /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D514D3F9D485DA8DB42A2 /* MenuBarView.swift */; };
+		1E12E770935A462DB35B37FD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7E813D1CAC4841944C3F33 /* CoreLocation.framework */; };
+		2CE969DCD76A45A88BC7BEE2 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED1DE5631B142BFBA1CE9E0 /* ServiceManagement.framework */; };
+		2CF0D04B211747089F44C729 /* SettingsPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C332BAD54D3489FBE421A67 /* SettingsPanelController.swift */; };
+		2D34372D24754C97AC874F5F /* TimeGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23354E696CA49B7A2055C8C /* TimeGoApp.swift */; };
+		352A7148912C41C18B19343A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6848D502E989486C9C28353B /* Theme.swift */; };
+		3E9C94B55FCA4A82B2FFEF55 /* DurationFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79D1C3A04F4098B91D41F7 /* DurationFormat.swift */; };
+		49D78A23C39A4D279B9EB543 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA4BB8AC048879B34B486 /* NetworkMonitor.swift */; };
+		6BC3EAD2637D475E96718E2B /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6822AD5764BE8AD130DEA /* AppSettings.swift */; };
+		8E299C5E733A426AA5144FF0 /* WakeMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9E252820A4AC1B0357602 /* WakeMonitor.swift */; };
+		A11CLOCK01B34C5D8E9F0A01 /* MenuBarClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CLOCK01B34C5D8E9F0A01 /* MenuBarClock.swift */; };
+		A1B2C3D4E5F6478890A1B2C3 /* HourMinuteField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A6478890B1C2D3 /* HourMinuteField.swift */; };
+		B260FDEB2D6F49F780215BE6 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F528B94E4E4233A94705FF /* NotificationService.swift */; };
+		BAF3C1B4DED44C3D9B67E1A5 /* LocationAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938C0D88F9FC41889876068E /* LocationAuthService.swift */; };
+		C0FFEE01A2B34C5D8E9F0A1B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = D0FFEE01A2B34C5D8E9F0A1B /* AppIcon.icns */; };
+		C147FD21A31E4451A70FB467 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BC5B01C624F9E90F8E141 /* SettingsView.swift */; };
+		C5F4DDFA2BEF4A25A3E7073F /* AutoClockInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2556A6FFD0C4A469BDAF083 /* AutoClockInService.swift */; };
+		CFA1968667674C5094A2E32E /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B3FC11E2E34F578687B4F2 /* CoreWLAN.framework */; };
+		D59F627D4E0B407487B4EE0D /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4350807185BF4E4DB683701F /* Localization.swift */; };
+		D7DDBA7F01134403B6094106 /* CompanyNetworkMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A550588DC514B28A66E57E5 /* CompanyNetworkMatcher.swift */; };
+		DEC9AF6C034C40A1A0471602 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 915A3F62F3924E16ABF41D6F /* Assets.xcassets */; };
+		E4F8A1B2C3D54E6F7890A1B2 /* NotificationIconRegistrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A6B7C8D9E04F1A2B3C4D5E /* NotificationIconRegistrar.swift */; };
+		EC2AF7DD4988476C8E6D98FC /* LaunchAtLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324317DBD1F4407AB0B6C2D6 /* LaunchAtLoginService.swift */; };
+		ECFAC55EA8834BCF8649EDD4 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DCA47206D74DE4A79B5C4A /* SessionStore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		014BC5B01C624F9E90F8E141 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		05E9E252820A4AC1B0357602 /* WakeMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeMonitor.swift; sourceTree = "<group>"; };
+		0CB493CDA1114D52B9569871 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
+		0D79D1C3A04F4098B91D41F7 /* DurationFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationFormat.swift; sourceTree = "<group>"; };
+		12B3FC11E2E34F578687B4F2 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
+		14F528B94E4E4233A94705FF /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		1B58D846857B4CC8A2ADAD5F /* TimeGo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeGo.entitlements; sourceTree = "<group>"; };
+		324317DBD1F4407AB0B6C2D6 /* LaunchAtLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginService.swift; sourceTree = "<group>"; };
+		36DCA47206D74DE4A79B5C4A /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		4350807185BF4E4DB683701F /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		4ED1DE5631B142BFBA1CE9E0 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		5A550588DC514B28A66E57E5 /* CompanyNetworkMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyNetworkMatcher.swift; sourceTree = "<group>"; };
+		6606EC1118CC4075A16C2A1E /* TimeGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6848D502E989486C9C28353B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		6EA6822AD5764BE8AD130DEA /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		7C332BAD54D3489FBE421A67 /* SettingsPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPanelController.swift; sourceTree = "<group>"; };
+		915A3F62F3924E16ABF41D6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		938C0D88F9FC41889876068E /* LocationAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthService.swift; sourceTree = "<group>"; };
+		A23354E696CA49B7A2055C8C /* TimeGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeGoApp.swift; sourceTree = "<group>"; };
+		B11CLOCK01B34C5D8E9F0A01 /* MenuBarClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarClock.swift; sourceTree = "<group>"; };
+		B1C2D3E4F5A6478890B1C2D3 /* HourMinuteField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourMinuteField.swift; sourceTree = "<group>"; };
+		CE9BA4BB8AC048879B34B486 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		CF7E813D1CAC4841944C3F33 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D0FFEE01A2B34C5D8E9F0A1B /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		D2556A6FFD0C4A469BDAF083 /* AutoClockInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoClockInService.swift; sourceTree = "<group>"; };
+		E4967C4F1A084BAE903ECD55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F45D514D3F9D485DA8DB42A2 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		F5A6B7C8D9E04F1A2B3C4D5E /* NotificationIconRegistrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationIconRegistrar.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3431CA6CC6FF48528274F368 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFA1968667674C5094A2E32E /* CoreWLAN.framework in Frameworks */,
+				0DD639BC03AF46CB93352BCC /* Network.framework in Frameworks */,
+				1E12E770935A462DB35B37FD /* CoreLocation.framework in Frameworks */,
+				2CE969DCD76A45A88BC7BEE2 /* ServiceManagement.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3631D90E103F48AB9CFB9BC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				12B3FC11E2E34F578687B4F2 /* CoreWLAN.framework */,
+				0CB493CDA1114D52B9569871 /* Network.framework */,
+				CF7E813D1CAC4841944C3F33 /* CoreLocation.framework */,
+				4ED1DE5631B142BFBA1CE9E0 /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63C69DC8EF9F47BFB7A176F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F45D514D3F9D485DA8DB42A2 /* MenuBarView.swift */,
+				014BC5B01C624F9E90F8E141 /* SettingsView.swift */,
+				0D79D1C3A04F4098B91D41F7 /* DurationFormat.swift */,
+				B1C2D3E4F5A6478890B1C2D3 /* HourMinuteField.swift */,
+				6848D502E989486C9C28353B /* Theme.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8BFB8FC953EF4578A7087386 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6606EC1118CC4075A16C2A1E /* TimeGo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8D0DCCBF622B437DAA0FC35F = {
+			isa = PBXGroup;
+			children = (
+				CD40186445E04887BC72C152 /* TimeGo */,
+				3631D90E103F48AB9CFB9BC9 /* Frameworks */,
+				8BFB8FC953EF4578A7087386 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B7318FE3DDB94C21A997AF62 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				36DCA47206D74DE4A79B5C4A /* SessionStore.swift */,
+				CE9BA4BB8AC048879B34B486 /* NetworkMonitor.swift */,
+				05E9E252820A4AC1B0357602 /* WakeMonitor.swift */,
+				14F528B94E4E4233A94705FF /* NotificationService.swift */,
+				D2556A6FFD0C4A469BDAF083 /* AutoClockInService.swift */,
+				938C0D88F9FC41889876068E /* LocationAuthService.swift */,
+				7C332BAD54D3489FBE421A67 /* SettingsPanelController.swift */,
+				5A550588DC514B28A66E57E5 /* CompanyNetworkMatcher.swift */,
+				324317DBD1F4407AB0B6C2D6 /* LaunchAtLoginService.swift */,
+				F5A6B7C8D9E04F1A2B3C4D5E /* NotificationIconRegistrar.swift */,
+				B11CLOCK01B34C5D8E9F0A01 /* MenuBarClock.swift */,
+				4350807185BF4E4DB683701F /* Localization.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CD40186445E04887BC72C152 /* TimeGo */ = {
+			isa = PBXGroup;
+			children = (
+				A23354E696CA49B7A2055C8C /* TimeGoApp.swift */,
+				DD98BBA9DAF64B6DA79FB5BD /* Models */,
+				B7318FE3DDB94C21A997AF62 /* Services */,
+				63C69DC8EF9F47BFB7A176F5 /* Views */,
+				E0FFEE01A2B34C5D8E9F0A1B /* Resources */,
+				915A3F62F3924E16ABF41D6F /* Assets.xcassets */,
+				E4967C4F1A084BAE903ECD55 /* Info.plist */,
+				1B58D846857B4CC8A2ADAD5F /* TimeGo.entitlements */,
+			);
+			path = TimeGo;
+			sourceTree = "<group>";
+		};
+		DD98BBA9DAF64B6DA79FB5BD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6EA6822AD5764BE8AD130DEA /* AppSettings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E0FFEE01A2B34C5D8E9F0A1B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D0FFEE01A2B34C5D8E9F0A1B /* AppIcon.icns */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D246AEA4B8B641BDB2550BA4 /* TimeGo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F083785F1EB547609EA7468B /* Build configuration list for PBXNativeTarget "TimeGo" */;
+			buildPhases = (
+				C2D98F8A62264E96BF860915 /* Sources */,
+				3431CA6CC6FF48528274F368 /* Frameworks */,
+				D7FD7C42D31A4319A93113BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeGo;
+			productName = TimeGo;
+			productReference = 6606EC1118CC4075A16C2A1E /* TimeGo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8D3F537EE5449F1B8DEADA5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2660;
+				TargetAttributes = {
+					D246AEA4B8B641BDB2550BA4 = {
+						CreatedOnToolsVersion = 26.0;
+					};
+				};
+			};
+			buildConfigurationList = D990487067FC47738CCB912E /* Build configuration list for PBXProject "TimeGo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 8D0DCCBF622B437DAA0FC35F;
+			productRefGroup = 8BFB8FC953EF4578A7087386 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D246AEA4B8B641BDB2550BA4 /* TimeGo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7FD7C42D31A4319A93113BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEC9AF6C034C40A1A0471602 /* Assets.xcassets in Resources */,
+				C0FFEE01A2B34C5D8E9F0A1B /* AppIcon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C2D98F8A62264E96BF860915 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D34372D24754C97AC874F5F /* TimeGoApp.swift in Sources */,
+				6BC3EAD2637D475E96718E2B /* AppSettings.swift in Sources */,
+				ECFAC55EA8834BCF8649EDD4 /* SessionStore.swift in Sources */,
+				49D78A23C39A4D279B9EB543 /* NetworkMonitor.swift in Sources */,
+				8E299C5E733A426AA5144FF0 /* WakeMonitor.swift in Sources */,
+				B260FDEB2D6F49F780215BE6 /* NotificationService.swift in Sources */,
+				C5F4DDFA2BEF4A25A3E7073F /* AutoClockInService.swift in Sources */,
+				BAF3C1B4DED44C3D9B67E1A5 /* LocationAuthService.swift in Sources */,
+				2CF0D04B211747089F44C729 /* SettingsPanelController.swift in Sources */,
+				D7DDBA7F01134403B6094106 /* CompanyNetworkMatcher.swift in Sources */,
+				EC2AF7DD4988476C8E6D98FC /* LaunchAtLoginService.swift in Sources */,
+				145874278D9B41FB9419EAAE /* MenuBarView.swift in Sources */,
+				C147FD21A31E4451A70FB467 /* SettingsView.swift in Sources */,
+				3E9C94B55FCA4A82B2FFEF55 /* DurationFormat.swift in Sources */,
+				352A7148912C41C18B19343A /* Theme.swift in Sources */,
+				A1B2C3D4E5F6478890A1B2C3 /* HourMinuteField.swift in Sources */,
+				D59F627D4E0B407487B4EE0D /* Localization.swift in Sources */,
+				E4F8A1B2C3D54E6F7890A1B2 /* NotificationIconRegistrar.swift in Sources */,
+				A11CLOCK01B34C5D8E9F0A01 /* MenuBarClock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1206EBACBBDE4C6AA2EF3E24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TimeGo/TimeGo.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TimeGo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdpi.TimeGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5701B5ABF251473A913DE3E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		93F950DBFD2D49B1AA2600C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EB4C763547904CBCB1EB89D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TimeGo/TimeGo.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TimeGo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdpi.TimeGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D990487067FC47738CCB912E /* Build configuration list for PBXProject "TimeGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93F950DBFD2D49B1AA2600C5 /* Debug */,
+				5701B5ABF251473A913DE3E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F083785F1EB547609EA7468B /* Build configuration list for PBXNativeTarget "TimeGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1206EBACBBDE4C6AA2EF3E24 /* Debug */,
+				EB4C763547904CBCB1EB89D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B8D3F537EE5449F1B8DEADA5 /* Project object */;
+}

@@ -1,0 +1,31 @@
+# Xcode
+DerivedData/
+build/
+dist/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.moved-aside
+*.xccheckout
+**/xcuserdata/
+
+# Swift Package Manager
+.build/
+
+# macOS
+.DS_Store
+
+# User settings
+*.xcuserstate
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Archives
+*.xcarchive
