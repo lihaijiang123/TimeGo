@@ -167,6 +167,10 @@ final class NotificationService: ObservableObject {
         center.removePendingNotificationRequests(withIdentifiers: [Self.targetID, Self.earlyID])
     }
 
+    func cancelEarlyPending() {
+        center.removePendingNotificationRequests(withIdentifiers: [Self.earlyID])
+    }
+
     func noteWorkNotificationDelivered(identifier: String) {
         onWorkNotificationDelivered?(identifier)
     }

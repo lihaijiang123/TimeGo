@@ -8,7 +8,6 @@ final class AutoClockInService {
     private let wake: WakeMonitor
     private var cancellables = Set<AnyCancellable>()
     private var gate = NetworkClockInGate()
-    private var notifyCheckTimer: Timer?
     private var resyncTask: Task<Void, Never>?
     /// Blocks session-publisher resync while markNotified* is writing flags.
     private var isMutatingNotifyFlags = false
@@ -22,9 +21,10 @@ final class AutoClockInService {
     func start() {
         network.start()
         wake.onEvent = { [weak self] event in
+            self?.store.ensureDayBoundaryTimer()
             self?.handlePresence(event)
-            self?.checkImmediateNotification()
-            self?.scheduleNotifyCheckTimer()
+            // After sleep, scheduled notifications may have been missed.
+            self?.checkMissedNotifications()
         }
         wake.start()
 
@@ -54,7 +54,6 @@ final class AutoClockInService {
                     self.evaluateNetworkClockIn()
                 }
                 if self.isMutatingNotifyFlags {
-                    self.scheduleNotifyCheckTimer()
                     return
                 }
                 self.scheduleResyncNotifications()
@@ -67,6 +66,7 @@ final class AutoClockInService {
 
         evaluateNetworkClockIn()
         scheduleResyncNotifications()
+        checkMissedNotifications()
     }
 
     private func handleSystemDelivered(_ identifier: String) {
@@ -85,7 +85,6 @@ final class AutoClockInService {
         default:
             break
         }
-        scheduleNotifyCheckTimer()
     }
 
     private func handlePresence(_ event: PresenceEvent) {
@@ -125,6 +124,8 @@ final class AutoClockInService {
         }
     }
 
+    /// Schedule system notifications only — do not also post immediate ones at the
+    /// same fire time (that was causing duplicate banners).
     private func performResyncNotifications() {
         let settings = store.settings
         let notifications = NotificationService.shared
@@ -133,8 +134,6 @@ final class AutoClockInService {
               let leave = store.targetLeaveTime,
               store.hasSessionToday else {
             notifications.cancelPending()
-            notifyCheckTimer?.invalidate()
-            notifyCheckTimer = nil
             return
         }
 
@@ -145,7 +144,7 @@ final class AutoClockInService {
 
         notifications.cancelPending()
 
-        if wantTarget {
+        if wantTarget, leave > .now {
             notifications.scheduleTargetNotification(
                 at: leave,
                 workHours: settings.workHours,
@@ -155,88 +154,57 @@ final class AutoClockInService {
         if wantEarly {
             let minutes = settings.clampedEarlyReminderMinutes
             let earlyAt = leave.addingTimeInterval(TimeInterval(-minutes * 60))
-            notifications.scheduleEarlyNotification(
-                at: earlyAt,
-                leaveTime: leave,
-                minutes: minutes
-            )
-        }
-
-        checkImmediateNotification()
-        scheduleNotifyCheckTimer()
-    }
-
-    private func scheduleNotifyCheckTimer() {
-        notifyCheckTimer?.invalidate()
-        notifyCheckTimer = nil
-
-        let settings = store.settings
-        guard settings.notificationsEnabled, store.hasSessionToday,
-              let leave = store.targetLeaveTime else { return }
-
-        var fireAt: Date?
-        if settings.notifyEarlyReminder,
-           store.session?.notifiedEarly != true,
-           store.session?.notifiedAtTarget != true {
-            let earlyAt = leave.addingTimeInterval(
-                TimeInterval(-settings.clampedEarlyReminderMinutes * 60)
-            )
             if earlyAt > .now {
-                fireAt = earlyAt
-            }
-        }
-        if settings.notifyWhenDone, store.session?.notifiedAtTarget != true, leave > .now {
-            if let existing = fireAt {
-                fireAt = min(existing, leave)
-            } else {
-                fireAt = leave
+                notifications.scheduleEarlyNotification(
+                    at: earlyAt,
+                    leaveTime: leave,
+                    minutes: minutes
+                )
             }
         }
 
-        guard let fireAt else { return }
-        let delay = max(0.2, fireAt.timeIntervalSinceNow + 0.05)
-        let timer = Timer(timeInterval: delay, repeats: false) { [weak self] _ in
-            Task { @MainActor in
-                self?.checkImmediateNotification()
-                self?.scheduleNotifyCheckTimer()
-            }
-        }
-        RunLoop.main.add(timer, forMode: .common)
-        notifyCheckTimer = timer
+        // Catch up only when fire time is clearly in the past (e.g. after sleep).
+        checkMissedNotifications()
     }
 
-    private func checkImmediateNotification() {
+    /// Posts at most one immediate banner when a scheduled notification was missed
+    /// (app asleep / terminated). Grace avoids racing the calendar trigger.
+    private func checkMissedNotifications() {
         let settings = store.settings
         guard settings.notificationsEnabled else { return }
         guard store.hasSessionToday else { return }
         guard let leave = store.targetLeaveTime else { return }
 
         let notifications = NotificationService.shared
+        let grace: TimeInterval = 3
+        let now = Date()
 
         if settings.notifyEarlyReminder,
-           store.isInEarlyReminderWindow,
-           store.session?.notifiedEarly != true {
-            isMutatingNotifyFlags = true
-            store.markNotifiedEarly()
-            isMutatingNotifyFlags = false
-            // Immediate banner replaces any pending early request.
-            notifications.notifyEarlyReminder(
-                leaveTime: leave,
-                minutes: settings.clampedEarlyReminderMinutes
-            )
+           store.session?.notifiedEarly != true,
+           store.session?.notifiedAtTarget != true {
+            let minutes = settings.clampedEarlyReminderMinutes
+            let earlyAt = leave.addingTimeInterval(TimeInterval(-minutes * 60))
+            if now >= earlyAt.addingTimeInterval(grace) {
+                isMutatingNotifyFlags = true
+                store.markNotifiedEarly()
+                isMutatingNotifyFlags = false
+                notifications.cancelEarlyPending()
+                notifications.notifyEarlyReminder(leaveTime: leave, minutes: minutes)
+            }
         }
 
-        guard settings.notifyWhenDone else { return }
-        guard store.isPastTarget else { return }
-        guard store.session?.notifiedAtTarget != true else { return }
-
-        isMutatingNotifyFlags = true
-        store.markNotifiedAtTarget()
-        isMutatingNotifyFlags = false
-        notifications.notifyTargetReached(
-            leaveTime: leave,
-            workHours: settings.workHours,
-            lunchHours: settings.lunchHours
-        )
+        if settings.notifyWhenDone,
+           store.session?.notifiedAtTarget != true,
+           now >= leave.addingTimeInterval(grace) {
+            isMutatingNotifyFlags = true
+            store.markNotifiedAtTarget()
+            isMutatingNotifyFlags = false
+            notifications.cancelPending()
+            notifications.notifyTargetReached(
+                leaveTime: leave,
+                workHours: settings.workHours,
+                lunchHours: settings.lunchHours
+            )
+        }
     }
 }

@@ -82,6 +82,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // Menu-bar apps have no windows; without this, macOS may auto-quit overnight.
+        ProcessInfo.processInfo.disableAutomaticTermination("TimeGo menu bar stays resident")
+        ProcessInfo.processInfo.disableSuddenTermination()
         UNUserNotificationCenter.current().delegate = self
     }
 

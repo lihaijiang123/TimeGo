@@ -155,12 +155,18 @@ final class SessionStore: ObservableObject {
         dayBoundaryTimer = timer
     }
 
+    /// Clears yesterday's session after midnight. Does not quit the app.
     private func reconcileDayBoundary() {
         guard let session else { return }
         if session.dayKey != WorkSession.dayKey(for: .now) {
             self.session = nil
             persistSession()
         }
+    }
+
+    /// Re-arm the midnight timer after wake (system may have deferred it).
+    func ensureDayBoundaryTimer() {
+        scheduleNextDayBoundary()
     }
 
     private func persistSettings() {

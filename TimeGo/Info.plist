@@ -21,7 +21,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>9</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSLocationUsageDescription</key>
@@ -29,8 +29,8 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>TimeGo 需要定位权限才能读取当前 Wi‑Fi 名称（SSID），用于识别公司网络并自动开始上班计时。不会用于追踪位置。</string>
 	<key>NSSupportsAutomaticTermination</key>
-	<true/>
+	<false/>
 	<key>NSSupportsSuddenTermination</key>
-	<true/>
+	<false/>
 </dict>
 </plist>
